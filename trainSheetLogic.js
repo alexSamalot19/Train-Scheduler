@@ -1,11 +1,11 @@
 // Steps to complete:
 
 // 1. Initialize Firebase
-// 2. Create button for adding new employees - then update the html + update the database
-// 3. Create a way to retrieve employees from the employee database.
-// 4. Create a way to calculate the months worked. Using difference between start and current time.
+// 2. Create button for adding new train - then update the html + update the database
+// 3. Create a way to retrieve train from the train database.
+// 4. Create a way to calculate the Next Arrival. Using difference between start and current time.
 //    Then use moment.js formatting to set difference in months.
-// 5. Calculate Total billed
+
 
 // 1. Initialize Firebase
 var firebaseConfig = {
@@ -22,7 +22,7 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-// 2. Button for adding Employees
+// 2. Button for adding trains
 $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
 
@@ -32,7 +32,7 @@ $("#add-train-btn").on("click", function(event) {
   var trainStart = moment($("#start-input").val().trim(), "HH:mm").format("X");
   var trainRate = $("#rate-input").val().trim();
 
-  // Creates local "temporary" object for holding employee data
+  // Creates local "temporary" object for holding train data
   var newTrain = {
     name: trainName,
     destination: trainDestin,
@@ -40,7 +40,7 @@ $("#add-train-btn").on("click", function(event) {
     rate: trainRate
   };
 
-  // Uploads employee data to the database
+  // Uploads train data to the database
   database.ref().push(newTrain);
 
   // Logs everything to console
@@ -49,7 +49,7 @@ $("#add-train-btn").on("click", function(event) {
   console.log(newTrain.start);
   console.log(newTrain.rate);
 
-  alert("Employee successfully added");
+  alert("New train successfully added");
 
   // Clears all of the text-boxes
   $("#train-name-input").val("");
@@ -58,7 +58,7 @@ $("#add-train-btn").on("click", function(event) {
   $("#rate-input").val("");
 });
 
-// 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+// 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
@@ -68,13 +68,13 @@ database.ref().on("child_added", function(childSnapshot) {
   var trainStart = childSnapshot.val().start;
   var trainRate = childSnapshot.val().rate;
 
-  // Employee Info
+  // Train Info
   console.log(trainName);
   console.log(trainDestin);
   console.log(trainStart);
   console.log(trainRate);
 
-  // Prettify the employee start
+  // Prettify the train start
   var militFormat = "HH:mm";
   var convertedTime = moment(trainStart, militFormat);
 
@@ -109,7 +109,7 @@ database.ref().on("child_added", function(childSnapshot) {
 
 // Example Time Math
 // -----------------------------------------------------------------------------
-// Assume Employee start date of January 1, 2015
+// Assume start date of January 1, 2015
 // Assume current date is March 1, 2016
 
 // We know that this is 15 months.
