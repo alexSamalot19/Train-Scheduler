@@ -12,6 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+   <!-- Link to the css stylesheet-->
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
   <!-- Firebase References -->
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -22,13 +25,7 @@
   <!-- Link to Moment.js-->
  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-  <style>
-    #train-table th,
-    td {
-      display: inline-block;
-      width: 16.575%;
-    }
-  </style>
+
 </head>
 
 <body>
@@ -48,7 +45,7 @@
 
         <!-- Current Trains-->
         <div class="card mb-4">
-          <div class="card-header text-white bg-info">Current Train Schedule</div>
+          <div class="card-header" style="background-color: navy; color: white;">Current Train Schedule</div>
           <div class="card-body">
             <table class="table table-sm table-hover" id='train-table'>
               <thead>
@@ -73,7 +70,7 @@
       <div class="col-md-12">
         <!-- Add Train  -->
         <div class="card mb-4">
-          <div class="card-header text-white bg-info">Add Train</div>
+          <div class="card-header" style="background-color: navy; color: white;">Add Train</div>
           <div class="card-body">
 
             <!-- Entry Form -->
@@ -94,7 +91,7 @@
                 <label for="rate-input">Frequency (min)</label>
                 <input class="form-control" id="rate-input" placeholder="10" type="text">
               </div>
-              <button class="btn btn-info float-right" id="add-train-btn">Submit</button>
+              <button class="btn float-right" style="background-color: navy; color: white;" id="add-train-btn">Submit</button>
             </form>
 
           </div>

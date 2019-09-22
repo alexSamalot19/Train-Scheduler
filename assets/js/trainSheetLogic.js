@@ -29,12 +29,12 @@ $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
 
   //User Input
-  var trainName = $("#start-input").val().trim();
-  var trainStartInp = $("#train-name-input").val().trim();
+  var  trainStartInp = $("#start-input").val().trim();
+  var trainName = $("#train-name-input").val().trim();
   var trainDestin = $("#destination-input").val().trim();
   var trainRate = $("#rate-input").val().trim();
   
- 
+
   var placeHolder = String(trainStartInp);
   var trainStart = placeHolder;
   
@@ -75,10 +75,10 @@ database.ref().on("child_added", function (childSnapshot) {
   var trainRate = TrainInfo.rate;
 
   // // Train Info
-  // console.log("TrainName=" + trainName);
-  // console.log("TrainDestin=" + trainDestin);
-  // console.log("TrainStart=" + trainStart);
-  // console.log("TrainRate=" + trainRate);
+  console.log("TrainName=" + trainName);
+  console.log("TrainDestin=" + trainDestin);
+  console.log("TrainStart=" + trainStart);
+  console.log("TrainRate=" + trainRate);
 
 
   // 4. Create  the Next Arrival. Using difference between start and current time.
@@ -93,12 +93,14 @@ var returned_endate = startdate;
   console.log("nowVar" + returned_endate);
   console.log("endVar" + expected_enddate);
 
-
-  while (returned_endate.isAfter(expected_enddate) !== true) {
-
+var j=0;
+  while (returned_endate && returned_endate.isAfter(expected_enddate) !== true) {
+j++
     returned_endate = moment(returned_endate).add(trainRate, 'minutes');
     console.log("inloop" + returned_endate.format("HH:mm"));
-
+if (j>1000){
+  break
+}
   }
 
 
