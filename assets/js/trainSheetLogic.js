@@ -29,15 +29,15 @@ $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
 
   //User Input
-  var  trainStartInp = $("#start-input").val().trim();
+  var trainStartInp = $("#start-input").val().trim();
   var trainName = $("#train-name-input").val().trim();
   var trainDestin = $("#destination-input").val().trim();
   var trainRate = $("#rate-input").val().trim();
-  
+
 
   var placeHolder = String(trainStartInp);
   var trainStart = placeHolder;
-  
+
   // Creates local "temporary" object for holding train data
   var newTrain = {
     name: trainName,
@@ -48,12 +48,6 @@ $("#add-train-btn").on("click", function (event) {
 
   // Uploads train data to the database
   database.ref().push(newTrain);
-
-  // Logs everything to console
-  // console.log(newTrain.name);
-  // console.log(newTrain.destination);
-  // console.log(newTrain.start);
-  // console.log(newTrain.rate);
 
   alert("New train successfully added");
 
@@ -82,25 +76,28 @@ database.ref().on("child_added", function (childSnapshot) {
 
 
   // 4. Create  the Next Arrival. Using difference between start and current time.
-//    Then use moment.js formatting to set difference in months.
+  //    Then use moment.js formatting to set difference in months.
   var militFormat = "HH:mm";
-  // console.log("start1" + trainStart);
- var startdate = moment(trainStart, militFormat);
-  // console.log("start" + startdate.format("HH:mm"));
-var expected_enddate = moment();
+
+  var startdate = moment(trainStart, militFormat);
+
+  var expected_enddate = moment();
   console.log("now" + expected_enddate.format("HH:mm"));
-var returned_endate = startdate;
+  var returned_endate = startdate;
   console.log("nowVar" + returned_endate);
   console.log("endVar" + expected_enddate);
 
-var j=0;
+  var j = 0;
   while (returned_endate && returned_endate.isAfter(expected_enddate) !== true) {
-j++
+    j++
     returned_endate = moment(returned_endate).add(trainRate, 'minutes');
     console.log("inloop" + returned_endate.format("HH:mm"));
-if (j>1000){
-  break
-}
+
+    //breaks while loop if iteration exceeds the number of minutes in a day
+    if (j > 1440) {
+      break
+    }
+    
   }
 
 
@@ -113,7 +110,7 @@ if (j>1000){
 
 
 
-// 5. Write all of the information to the table as a new row
+  // 5. Write all of the information to the table as a new row
   var newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDestin),
