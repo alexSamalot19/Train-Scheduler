@@ -1,101 +1,51 @@
 # Train-Scheduler
-Basic API Database
-r# Firebase Assignment - Train Scheduler (Basic - Recommended)
+<br>
 
-##### _Because that Rock Paper Scissors Game is Too Damn Hard_
+## Problem
 
-### Overview
+Provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station. This train schedule application incorporates Google Firebase to host arrival and departure data provided by the user via forms.
 
-In this assignment, you'll create a train schedule application that incorporates Firebase to host arrival and departure data. Your app will retrieve and manipulate this information with Moment.js. This website will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.
+<br>
 
-- - -
+## Overview of App Organization
 
-### Setup
-
-* We'll leave that up to you -- however you like. Just make sure you're using Firebase to store data, GitHub to backup your project, and GitHub Pages to host your finished site.
-
-### Commits
-
-Having an active and healthy commit history on GitHub is important for your future job search. It is also extremely important for making sure your work is saved in your repository. If something breaks, committing often ensures you are able to go back to a working version of your code.
-
-* Committing often is a signal to employers that you are actively working on your code and learning.
-
-  * We use the mantra “commit early and often.”  This means that when you write code that works, add it and commit it!
-
-  * Numerous commits allow you to see how your app is progressing and give you a point to revert to if anything goes wrong.
-
-* Be clear and descriptive in your commit messaging.
-
-  * When writing a commit message, avoid vague messages like "fixed." Be descriptive so that you and anyone else looking at your repository knows what happened with each commit.
-
-* We would like you to have well over 200 commits by graduation, so commit early and often!
-
-### Submission on BCS
-
-* Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
-
-### Instructions
-
-* Make sure that your app suits this basic spec:
-  
-  * When adding trains, administrators should be able to submit the following:
-    
-    * Train Name
+* Administrators submit the following:
+   * Train Name
     
     * Destination 
     
-    * First Train Time -- in military time
+    * First Train Time (military time)
     
-    * Frequency -- in minutes
+    * Frequency (minutes)
   
-  * Code this app to calculate when the next train will arrive; this should be relative to the current time.
+  * This app to calculates when the next train will arrive. This is relative to the current time.
   
-  * Users from many different machines must be able to view same train times.
+  * Users from many different machines can view same train times.
+
+* A table displays the Train Name, Destination, Rate, Next Arrival and Minutes Away as shown below.
+
+![Site](assets/images/Train_Time_Image.png)
   
-  * Styling and theme are completely up to you. Get Creative!
+<br>
 
-### Example Site
+## Run Instructions
 
-![train homework](Train_Time_Image.png)
+In the self labeled forms the User must enter the Train Name, Destination, First Train Time and Frequency information is collected and stored at this public firebase[ database.](https://alexfsf-7b2e5.firebaseio.com). After the database has been updated, the first departure and frequency are used to determine the next arrival using [moment](https://www.npmjs.com/package/moment). The Train Name, Destination, Rate, Next Arrival and Minutes Away are appended to the table above the forms.
 
-### Bonus (Extra Challenges)
+<br>
 
-* Consider updating your "minutes to arrival" and "next train time" text once every minute. This is significantly more challenging; only attempt this if you've completed the actual activity and committed it somewhere on GitHub for safekeeping (and maybe create a second GitHub repo).
+## This App Utilizes
 
-* Try adding `update` and `remove` buttons for each train. Let the user edit the row's elements-- allow them to change a train's Name, Destination and Arrival Time (and then, by relation, minutes to arrival).
+* [Google Firebase](https://firebase.google.com/?gclid=Cj0KCQjwoqDtBRD-ARIsAL4pviAp-Sx8MEzjE_9yfjPnr2lgDN_vIuzr-N_OBURfQ42i305Vktv99jwaAosMEALw_wcB)
 
-* As a final challenge, make it so that only users who log into the site with their Google or GitHub accounts can use your site. You'll need to read up on Firebase authentication for this bonus exercise.
+* [Moment](https://www.npmjs.com/package/moment)
 
-### Reminder: Submission on BCS
+* [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
 
-* Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
 
-- - -
+## Role in Development
 
-### Minimum Requirements
+My name is Alex I am a bootcamp student whose portfolio can be found
+[here.]( https://alexsamalot19.github.io/Samalot-Alexander-Portfolio/)
 
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
-
-- - -
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- - -
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
-### One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-**Good Luck!**
+I designed this app using JavaScript, HTML, CSS and resources listed in the **This App Utilizes** section. Forms collect user input data and Firebase allows users from many different machines can view/edit the page. 
